@@ -1,8 +1,8 @@
-# ⚡ Bolt Backend - Website Generation API
+# ⚡ ZapCode Backend - Website Generation API
 
 ## 🌟 Overview
 
-The **Bolt Backend** powers the API that transforms text prompts into complete website code using Google Gemini LLM. This service processes natural language requests and returns structured HTML, CSS, and JavaScript code for instant website generation.
+The **ZapCode Backend** powers the API that transforms text prompts into complete website code using Google Gemini LLM. This service processes natural language requests and returns structured HTML, CSS, and JavaScript code for instant website generation.
 
 ## 💻 Tech Stack
 
