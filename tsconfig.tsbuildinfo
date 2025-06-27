@@ -1,0 +1,1 @@
+{"root":["./src/constants.ts","./src/index.ts","./src/prompts.ts","./src/stripindents.ts","./src/config/environment.ts","./src/defaults/node.ts","./src/defaults/react.ts","./src/routes/chat.ts","./src/routes/template.ts","./src/services/ai.service.ts","./src/types/index.ts"],"version":"5.8.3"}
