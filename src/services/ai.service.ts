@@ -1,11 +1,13 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import { config } from '../config/environment';
-import { AIMessage } from '../types';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { config } from "../config/environment";
+import { AIMessage } from "../types";
 
 const genAI = new GoogleGenerativeAI(config.geminiApiKey!);
 
-
-export async function callGemini(messages: AIMessage[], maxTokens: number): Promise<string> {
+export async function callGemini(
+  messages: AIMessage[],
+  maxTokens: number
+): Promise<string> {
   const model = genAI.getGenerativeModel({ model: config.geminiModel });
 
   const chat = model.startChat({
@@ -19,4 +21,4 @@ export async function callGemini(messages: AIMessage[], maxTokens: number): Prom
   const result = await chat.sendMessage(userMessage);
   const response = await result.response;
   return response.text();
-} 
+}

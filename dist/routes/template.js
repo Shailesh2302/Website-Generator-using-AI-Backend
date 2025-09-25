@@ -16,17 +16,18 @@ const node_1 = require("../defaults/node");
 const react_1 = require("../defaults/react");
 const router = (0, express_1.Router)();
 // Detect if project is node or react
-router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const prompt = req.body.prompt;
     const messages = [
         {
-            role: 'user',
-            content: "Return either node or react based on what do you think this project should be. Only return a single word either 'node' or 'react'. Do not return anything extra\n\n" + prompt,
+            role: "user",
+            content: "Return either node or react based on what do you think this project should be. Only return a single word either 'node' or 'react'. Do not return anything extra\n\n" +
+                prompt,
         },
     ];
     try {
         const answer = (yield (0, ai_service_1.callGemini)(messages, 200)).trim().toLowerCase();
-        if (answer === 'react') {
+        if (answer === "react") {
             const response = {
                 prompts: [
                     prompts_1.BASE_PROMPT,
@@ -36,7 +37,7 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             };
             res.json(response);
         }
-        else if (answer === 'node') {
+        else if (answer === "node") {
             const response = {
                 prompts: [
                     prompts_1.BASE_PROMPT,
@@ -52,6 +53,7 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
     }
     catch (error) {
+        console.error("Template route error:", error); // 👈 This will print real reason in terminal
         const errorResponse = { error: 'Failed to process template request' };
         res.status(500).json(errorResponse);
     }
